@@ -34,11 +34,16 @@ public:
 
     // get the choice value to use it deciding wether it is circular or rectangular.
     int get_choice();
+
     float get_l();
+
     float get_m_p();
+
     float get_alpha();
 
     // ------------------ End ---------------------
+
+    // -------------------- Set Funcitons ----------------------
 
     // sets the beam's cross-section type checks if the value is 1 or 0 only(asks the user).
     void set_choice();
@@ -61,7 +66,9 @@ public:
     // sets the safty factor value and checks if the value is bigger than 1 (asks the user).
     void set_n();
 
-    // ---------------- Beam's characteristics ----------------
+    // ------------------ End ---------------------
+
+    // ---------------- Beam's Stress Optimizer ----------------
 
     // takes the dimensions according to the choice of 0: circular, 1: rectangular.
     // and outputs it in the volume (mm^3).
@@ -82,8 +89,6 @@ public:
 
     // calculates the beam's stress (Mpa).
     double beam_stress();
-    
-    // ---------------- end ----------------
 
     // optimizer that changes the dimensions of the beam and recaculate the stress.
     // gives:
@@ -91,7 +96,9 @@ public:
     // the optimized stress of the beam.
     // the mass of the beam.
     double beam_stress_optimizer();
-  
+    
+    // ---------------- End ----------------
+
     // ----------- Material Selection -----------
     void Mat_Sel();
     // ------------------ End ------------------

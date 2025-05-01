@@ -4,6 +4,23 @@
 
 using namespace std;
 
+int beam::get_choice()
+{
+    return choice;
+}
+float beam::get_l()
+{
+    return l;
+}
+float beam::get_m_p()
+{
+    return m_p;
+}
+float beam::get_alpha()
+{
+    return alpha;
+}
+
 // sets the beam's cross-section type checks if the value is 1 or 0 only(asks the user).
 void beam::set_choice()
 {
