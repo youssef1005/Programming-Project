@@ -1,7 +1,5 @@
 #include <iostream>
 #include "..\Header Files\Beams_Class.hpp"
-
-
 using namespace std;
 
 int beam::get_choice()

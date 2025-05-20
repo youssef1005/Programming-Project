@@ -14,4 +14,5 @@ private:
 public:
     motor(float m_p, float alpha_max, float l, float m_l);
     void calc_torque_required();
+    void motor_gearbox_sel();
 };

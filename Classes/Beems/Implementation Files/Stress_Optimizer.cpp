@@ -81,21 +81,16 @@ double beam::beam_stress_optimizer()
     {
         if (op_stress >= (sigma_y / n))
         {
-            if (choice == CIRCULAR_CHOICE)
-            {
-                std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
-            }
-            else if (choice == RECTANGULAR_CHOICE)
-            {
-                std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
-            }
+
+            std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
+            
             while (op_stress >= (sigma_y / n)) // incase the data from user is not suitable for the material then it will increase the dimensions.
             {
                 h = h + 0.01 * h; // increase the height by 1 & to get the lower stress.
                 b = b + 0.01 * b; // increase the width by 1 & to get the lower stress. (incase of rectangular cross-section).
                 op_stress = beam::beam_stress();
             }
-            if (choice == CIRCULAR_CHOICE) 
+            if (choice == CIRCULAR_CHOICE)
             {
                 std::cout << "So the dimensions need to be increased to: " << h << " mm\n";
             }
