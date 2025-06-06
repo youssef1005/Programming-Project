@@ -7,7 +7,7 @@ class beam
 {
 private:
     // requested from user to choose the cross-section
-    int choice = 0;
+    int choice = CIRCULAR_CHOICE;
     // 0: circular cross-section (circular by defalt).
     // 1: rectangular cross-section.
 
@@ -31,19 +31,27 @@ private:
 public:
 
     // ---------------- Get Functions ----------------
+    // implemented in: ../Implementation Files/Beam_Class.cpp
 
-    // get the choice value to use it deciding wether it is circular or rectangular.
+    // gets the choice value to use it deciding wether it is circular or rectangular and to use it in other files:
+    // ../../../Main.cpp
     int get_choice();
 
+    // gets the length value to use it in other files:
+    // ../../Motors/Implementaion Files/Motors.cpp
     float get_l();
 
+    // gets the payload mass value to use it in other files:
+    // ../../Motors/Implementaion Files/Motors.cpp
     float get_m_p();
 
+    // gets the maximum alpha value to use it in other files:
+    // ../../Motors/Implementaion Files/Motors.cpp
     float get_alpha();
-
     // ------------------ End ---------------------
 
     // -------------------- Set Funcitons ----------------------
+    // implemented in: ../Implementation Files/Beam_Class.cpp
 
     // sets the beam's cross-section type checks if the value is 1 or 0 only(asks the user).
     void set_choice();
@@ -65,10 +73,10 @@ public:
 
     // sets the safty factor value and checks if the value is bigger than 1 (asks the user).
     void set_n();
-
     // ------------------ End ---------------------
 
     // ---------------- Beam's Stress Optimizer ----------------
+    // implemented in: ../Implementation Files/Stress_Optimizer.cpp
 
     // takes the dimensions according to the choice of 0: circular, 1: rectangular.
     // and outputs it in the volume (mm^3).
@@ -96,10 +104,11 @@ public:
     // the optimized stress of the beam.
     // the mass of the beam.
     double beam_stress_optimizer();
-    
     // ---------------- End ----------------
 
     // ----------- Material Selection -----------
+    // implemented in: ../Implementation Files/Material_Selection.cpp
+
     void Mat_Sel();
     // ------------------ End ------------------
 };

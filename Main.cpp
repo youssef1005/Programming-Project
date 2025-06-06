@@ -12,7 +12,8 @@ int main()
     {
         beam a;
 
-        // set the beam's parameters form user
+        // --------- set the beam's parameters form user -----------------
+
         cout << "\n\n ---------- first we need to define the beam's parameters ---------- \n\n";
         a.Mat_Sel();
         a.set_n();
@@ -22,14 +23,17 @@ int main()
         a.set_l();
         a.set_alpha();
         a.set_m_p();
+        // ---------- end -----------
 
+        // -------------- Stress Optimizer final results --------------
         cout << "\n\n ---------------- The Final Results ------------------- \n";
         cout << "The beam's Stress: " << a.beam_stress_optimizer() << " MPa";
-
+        // ---------- end -----------
+        
         // ---------- motors test -----------
-        motor b(a.get_m_p(), a.get_alpha(), a.get_l(), a.beam_mass());
-        b.calc_torque_required();
 
+        motor b;
+        b.calc_torque_required();
         // ---------- end -----------
 
         cout << "\n\nTo Re-run the program enter 1, to exit enter any number else: ";
@@ -38,4 +42,6 @@ int main()
 
     return 0;
 }
+
+
 
