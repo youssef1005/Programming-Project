@@ -23,7 +23,7 @@ void motor::calc_torque_required()
     T_required = T;
 }
 
-vector <float> motor::motor_set()
+void motor::motor_set()
 {
 
 // define first motor specifications
@@ -112,7 +112,6 @@ vector <float> motor::motor_set()
 
 
 	} while (choice == 1);
-    return ;
 }
 
 void motor::gear_set()

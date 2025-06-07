@@ -1,6 +1,18 @@
 #include <iostream>
+
 #include "Classes\Beems\Header Files\Beams_Class.hpp"
+#include "Classes\Beems\Implementation Files\Beam_Class.cpp"
+#include "Classes\Beems\Implementation Files\Material_Selection.cpp"
+#include "Classes\Beems\Implementation Files\Stress_Optimizer.cpp"
+#include "Data/Beams/Materials.hpp"
+#include "Data/Beams/Materials.cpp"
+
 #include "Classes\Motors\Header Files\Motors_Class.hpp"
+#include "Classes\Motors\Implementation Files\Motors_Class.cpp"
+
+
+
+
 
 
 using namespace std;

@@ -1,7 +1,10 @@
 #pragma once
 #include <vector>
 #include <array>
+#include <string>
 #include "../../Beems/Header Files/Beams_Class.hpp"
+
+using namespace std;
 
 class motor {
 private:
@@ -56,13 +59,11 @@ public:
     void calc_torque_required();
     void motor_gearbox_sel();
     void speed();
-    vector <float> motor_set();
+    void motor_set();
     void gear_set();
-    void calc_torque_required();
     void calc_output_torque();
     void calc_output_speed();
     void calc_cost();
     void sortvector();
     void selection();
-    vector <vector<float>> get_motor_name();
 };
