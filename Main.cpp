@@ -10,11 +10,6 @@
 #include "Classes\Motors\Header Files\Motors_Class.hpp"
 #include "Classes\Motors\Implementation Files\Motors_Class.cpp"
 
-
-
-
-
-
 using namespace std;
 
 int main()
