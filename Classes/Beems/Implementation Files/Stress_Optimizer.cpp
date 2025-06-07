@@ -2,6 +2,8 @@
 #include <cmath>
 #include "..\Header Files\Beams_Class.hpp"
 
+using namespace std;
+
 // takes the dimensions according to the choice of 0: circular, 1: rectangular.
 // and outputs it in the volume (mm^3).
 void beam::beam_volume()
@@ -82,7 +84,7 @@ double beam::beam_stress_optimizer()
         if (op_stress >= (sigma_y / n))
         {
 
-            std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
+            cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
             
             while (op_stress >= (sigma_y / n)) // incase the data from user is not suitable for the material then it will increase the dimensions.
             {
@@ -92,11 +94,11 @@ double beam::beam_stress_optimizer()
             }
             if (choice == CIRCULAR_CHOICE)
             {
-                std::cout << "So the dimensions need to be increased to: " << h << " mm\n";
+                cout << "So the dimensions need to be increased to: " << h << " mm\n";
             }
             else if (choice == RECTANGULAR_CHOICE)
             {
-                std::cout << "So the dimensions need to be increased to: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n";
+                cout << "So the dimensions need to be increased to: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n";
             }
             
             
@@ -105,18 +107,18 @@ double beam::beam_stress_optimizer()
         if (op_stress <= (sigma_y / n) * (0.8)) // asks the user if he wants to optimize the beam's dimensions or not.
         {
             char opt;
-            std::cout << "Do you want to optimize the beam's dimensions? if not press (n/N): ";
-            std::cin >> opt;
+            cout << "Do you want to optimize the beam's dimensions? if not press (n/N): ";
+            cin >> opt;
 
             if (opt == 'n' || opt =='N') // if no it will give teh beam's data and exit the function
             {
                 if (choice == CIRCULAR_CHOICE)
                 {
-                    std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nthe dimensions need to be increased to: " << h << " mm\n" << "the beam's mass will be: " << beam::beam_mass() << " Kg\n";
+                    cout << "\nThe beam's stress is: " << op_stress << " MPa\nthe dimensions need to be increased to: " << h << " mm\n" << "the beam's mass will be: " << beam::beam_mass() << " Kg\n";
                 }
                 else if (choice == RECTANGULAR_CHOICE)
                 {
-                    std::cout << "\nThe beam's stress is: " << op_stress << " MPa\nthe dimensions need to be increased to: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n" << "the beam's mass will be: " << beam_mass() << " Kg\n";
+                    cout << "\nThe beam's stress is: " << op_stress << " MPa\nthe dimensions need to be increased to: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n" << "the beam's mass will be: " << beam_mass() << " Kg\n";
                 }
                 return op_stress;
             }
@@ -134,11 +136,11 @@ double beam::beam_stress_optimizer()
                 op_stress = beam::beam_stress();
                 if (choice == CIRCULAR_CHOICE)
                 {
-                    std::cout << "\nNo more optimization can be done since it will be irresonable\nthe minimum diameter is: " << h << " mm\n" << "The beam's mass will be: " << beam::beam_mass() << " Kg\n";
+                    cout << "\nNo more optimization can be done since it will be irresonable\nthe minimum diameter is: " << h << " mm\n" << "The beam's mass will be: " << beam::beam_mass() << " Kg\n";
                 }
                 else if (choice == RECTANGULAR_CHOICE)
                 {
-                    std::cout << "\nNo more optimization can be done since it will be irresonable\nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n" << "The beam's mass will be: " << beam_mass() << " Kg\n";
+                    cout << "\nNo more optimization can be done since it will be irresonable\nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n" << "The beam's mass will be: " << beam_mass() << " Kg\n";
                 }
                 return op_stress;
             }
@@ -150,15 +152,15 @@ double beam::beam_stress_optimizer()
         {
             if (choice == CIRCULAR_CHOICE)
             {
-                std::cout <<"\nThe optimized diameter is: " << h << " mm\n";
+                cout <<"\nThe optimized diameter is: " << h << " mm\n";
             }
             else if (choice == RECTANGULAR_CHOICE)
             {
-                std::cout <<"\nThe optimized dimensions are: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n";
+                cout <<"\nThe optimized dimensions are: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n";
             }
         }
     } while (op_stress >= (sigma_y / n)); // to make sure that the stress is less than the yield strength after decreasing the dimensions (just an extra check).
 
-    std::cout << "The arm's mass will be: " << beam::beam_mass() << " Kg\n"; // final mass of the beam. (incase the programm completes without any special coditions)
+    cout << "The arm's mass will be: " << beam::beam_mass() << " Kg\n"; // final mass of the beam. (incase the programm completes without any special coditions)
     return op_stress; // final optimized stress. (incase the programm completes without any special coditions)
 }
