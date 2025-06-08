@@ -1,14 +1,34 @@
 #include <iostream>
 
+// Classes:
+// 1. Beam class
+//   . Header
 #include "Classes\Beems\Header Files\Beams_Class.hpp"
+
+//   . Implementation
 #include "Classes\Beems\Implementation Files\Beam_Class.cpp"
 #include "Classes\Beems\Implementation Files\Material_Selection.cpp"
 #include "Classes\Beems\Implementation Files\Stress_Optimizer.cpp"
+
+// 1. Motor class
+//   . Header
+#include "Classes\Motors\Header Files\Motors_Class.hpp"
+
+//   . Implementation
+#include "Classes\Motors\Implementation Files\Motors_Class.cpp"
+
+// Data Base:
+// 1. Beam Material
 #include "Data/Beams/Materials.hpp"
 #include "Data/Beams/Materials.cpp"
 
-#include "Classes\Motors\Header Files\Motors_Class.hpp"
-#include "Classes\Motors\Implementation Files\Motors_Class.cpp"
+// 2. Motors and gear boxes
+#include "Data/Motors/Motors/Motors_Data.hpp"
+#include "Data/Motors/Motors/Motors_Data.cpp"
+#include "Data/Motors/Gearboxes/Gearbox_Data.hpp"
+#include "Data/Motors/Gearboxes/Gearbox_Data.cpp"
+#include "Data/Motors/Combinaiton/Combination.hpp"
+#include "Data/Motors/Combinaiton/Combination.cpp"
 
 using namespace std;
 
@@ -35,12 +55,27 @@ int main()
         // -------------- Stress Optimizer final results --------------
         cout << "\n\n ---------------- The Final Results ------------------- \n";
         cout << "The beam's Stress: " << a.beam_stress_optimizer() << " MPa";
+        cout << "\n\n--------------- END ----------------\n\n";
         // ---------- end -----------
         
         // ---------- motors test -----------
 
-        motor b;
+        cout << "\n\n ---------- For The Motor Selection ---------- \n\n";
+        motor b(a.get_l(), a.get_m_p(), a.get_alpha(), a.beam_mass());
+        b.calc_speed_required();
         b.calc_torque_required();
+        Motor_Initial_Set();
+        motor_set();
+        Gearbox_Initial_Set();
+        Gearbox_add();
+        Combination_Name();
+        calc_output_torque();
+        calc_output_speed();
+        calc_cost();
+        b.sortvector();
+        b.selection();
+        cout << "\n\n--------------- END ----------------\n\n";
+
         // ---------- end -----------
 
         cout << "\n\nTo Re-run the program enter 1, to exit enter any number else: ";
@@ -49,6 +84,3 @@ int main()
 
     return 0;
 }
-
-
-
