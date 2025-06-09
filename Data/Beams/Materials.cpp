@@ -39,11 +39,11 @@ void material_add()
         {
             // request the material's name
             string n_mat_name = "";
-            cout << "\nEnter the material's name (max 40 char): ";
+            cout << "\nEnter the material's name (max 25 char): ";
             cin >> n_mat_name;
-            while (n_mat_name.length() == 0 || n_mat_name.length() > 40)
+            while (n_mat_name.length() == 0 || n_mat_name.length() > 25)
             {
-                cout << "Invalid Input!, " << "Enter the material's name (max 40 char): ";
+                cout << "Invalid Input!, " << "Enter the material's name (max 25 char): ";
                 cin >> n_mat_name;
             }
 
@@ -51,9 +51,9 @@ void material_add()
             float n_mat_ys = 0;
             cout << "Enter the material's Yield Strength (in MPa): ";
             cin >> n_mat_ys;
-            while (n_mat_ys == 0 || n_mat_ys > 1000 )
+            while (n_mat_ys == 0 || n_mat_ys > 1500 )
             {
-                cout << "Invalid Input!, " << "Enter the material's name (max 1000 MPa): ";
+                cout << "Invalid Input!, " << "Enter the material's name (max 1500 MPa): ";
                 cin >> n_mat_ys;
             }
             
@@ -82,13 +82,32 @@ void material_add()
         } while (Data_Ensure != SURE);
 
         // to show the data to the user after adding any new material
-        for (int i = 0; i < (last_added_mat + 1); i++) // +1 beacause the last_added_mat deals with index
+        cout << " # | Material Name             | Yield Strength | Density ";
+        cout << "\n----------------------------------------------------------\n";
+        for (int i = 0; i < name_mat.size(); i++)
         {
             if (sp_mat[i][0] != 0)
             {
                 ch_mat.at(i) = i + 1;
-                cout << ch_mat[i] << ": ";
-                cout << name_mat[i] << " | " << sp_mat[i][0] << " | " << sp_mat[i][1] <<"\n";
+                cout << ch_mat[i];
+
+                if(ch_mat[i] < 10) cout << "  | ";
+                else cout << " | "; 
+
+                cout << name_mat[i];
+                for (int j = 0; j < (25 - name_mat[i].length()); j++)
+                {
+                    cout << " ";
+                }
+                cout << " | " << sp_mat[i][0];
+                if (sp_mat[i][0] < 10) cout << "             ";
+                else if (sp_mat[i][0] < 100) cout << "            ";
+                else if (sp_mat[i][0] < 1000) cout << "           ";
+                else if (sp_mat[i][0] < 10000) cout << "          ";
+                else if (sp_mat[i][0] < 100000) cout << "         ";
+
+                cout << " | " << sp_mat[i][1] <<"\n";
+                last_added_mat = i;
             }
         }
 
