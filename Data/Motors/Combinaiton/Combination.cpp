@@ -63,18 +63,14 @@ void motor::calc_output_speed()
 void motor::calc_cost ()
 { 
     float c;
-    for (int z = 0; z < (n_motor * n_gear); z++)
-    {
-        if (motor_specs[3] == gear_specs[3]) // if motor diameter equals Gearbox bore diameter
+    for (int i =0 ; i< n_motor ; i++){
+        for (int j=0 ; j< n_gear; j++)
         {
-            for (int i =0 ; i< n_motor ; i++){
-                for (int j=0 ; j< n_gear; j++)
-                {
-                    c = (motor_specs[2][i] + gear_specs[2][j]) + (motor_specs[3][i] + gear_specs[3][j])/100 + ( gear_specs[4][j])/100 ; //[0*0,0*1,0*2,0*3,1*0,1*1,1*2,1*3,2*0,2*1,2*2,2*3]
-                    Combination_specs[2].push_back(c);
-                }
+            if (motor_specs[3][i] == gear_specs[3][j]) // if motor diameter equals Gearbox bore diameter
+            {
+                c = (motor_specs[2][i] + gear_specs[2][j]) + (motor_specs[3][i] + gear_specs[3][j])/100 + ( gear_specs[4][j])/100 ; //[0*0,0*1,0*2,0*3,1*0,1*1,1*2,1*3,2*0,2*1,2*2,2*3]
+                Combination_specs[2].push_back(c);
             }
         }
     }
-
 }

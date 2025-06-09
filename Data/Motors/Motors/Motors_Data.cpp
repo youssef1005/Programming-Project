@@ -9,7 +9,7 @@ void motor::Motor_Initial_Set()
     motor_specs[0] = { 5630 * (2.0 * M_PI / 60), 2850 * (2.0 * M_PI / 60), 8520 * (2.0 * M_PI / 60), 8070 * (2.0 * M_PI / 60), 51600 * (2.0 * M_PI / 60) }; // motor speed (Rad/s)
     motor_specs[1] = { 1.89f, 1.71f, 0.028f, 0.0944f, 0.00338f }; // motor torque (Nm)
     motor_specs[2] = { 0.225f, 0.741f, 0.032f, 0.071f, 0.020f }; // motor mass (Kg)
-    motor_specs[3] = { 54.0f, 90.0f, 22.0f, 32.0f, 10.0f }; // motor diameter (mm)
+    motor_specs[3] = { 5.0f, 5.0f, 20.0f, 30.0f, 75.0f }; // motor diameter (mm)
 }
 
 void motor::motor_set()

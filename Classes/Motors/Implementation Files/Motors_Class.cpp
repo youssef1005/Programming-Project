@@ -32,8 +32,9 @@ void motor::sortvector()
     int n = Combination_specs[2].size();
     for (int i = 0; i < n - 1; ++i) 
     {
-        for (int j = 0; j < n - i - 1; ++j) 
+        for (int j = 0; j < n - i - 1; ++j)
         {
+            cout << 1;
             if (Combination_specs[2][j] > Combination_specs[2][j + 1])
             {
                 float new_cost = Combination_specs[2][j];
@@ -54,6 +55,12 @@ void motor::sortvector()
             }
         }
     }
+
+    for (int i = 0; i < Combination_specs[2].size(); i++)
+    {
+        cout << Combination_specs[2][i] << "\n";
+    }
+
 }
 
 // compare the torque we want with the torque of the motors in order, and as soon as we find one, we print its data: cost, torque, and speed.

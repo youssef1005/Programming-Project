@@ -9,7 +9,7 @@ void motor::Gearbox_Initial_Set()
     gear_specs[0] = { 15.0f, 4.0f }; // Gearbox Ratio (Unitless)
     gear_specs[1] = { 0.85f, 0.85f }; // Gearbox Efficiency (Unitless)
     gear_specs[2] = { 0.3f, 2.3f }; // Gearbox Mass (Kg)
-    gear_specs[3] = { 5.0f, 7.5f }; // Gearbox Diameter (mm)
+    gear_specs[3] = { 5.0f, 75.0f }; // Gearbox Diameter (mm)
     gear_specs[4] = { 53.0f, 73.0f }; // Gearbox Width (mm)
 }
 
