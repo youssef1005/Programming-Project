@@ -23,11 +23,8 @@
 #include "Data/Beams/Materials.cpp"
 
 // 2. Motors and gear boxes
-#include "Data/Motors/Motors/Motors_Data.hpp"
 #include "Data/Motors/Motors/Motors_Data.cpp"
-#include "Data/Motors/Gearboxes/Gearbox_Data.hpp"
 #include "Data/Motors/Gearboxes/Gearbox_Data.cpp"
-#include "Data/Motors/Combinaiton/Combination.hpp"
 #include "Data/Motors/Combinaiton/Combination.cpp"
 
 using namespace std;
@@ -64,14 +61,14 @@ int main()
         motor b(a.get_l(), a.get_m_p(), a.get_alpha(), a.beam_mass());
         b.calc_speed_required();
         b.calc_torque_required();
-        Motor_Initial_Set();
-        motor_set();
-        Gearbox_Initial_Set();
-        Gearbox_add();
-        Combination_Name();
-        calc_output_torque();
-        calc_output_speed();
-        calc_cost();
+        b.Motor_Initial_Set();
+        b.motor_set();
+        b.Gearbox_Initial_Set();
+        b.Gearbox_add();
+        b.Combination_Name();
+        b.calc_output_torque();
+        b.calc_output_speed();
+        b.calc_cost();
         b.sortvector();
         b.selection();
         cout << "\n\n--------------- END ----------------\n\n";

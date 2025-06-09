@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Materials.hpp"
 
 void Material_Initial_Set()

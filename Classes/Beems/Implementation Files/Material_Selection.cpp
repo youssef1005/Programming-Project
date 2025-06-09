@@ -1,5 +1,3 @@
-#include <iostream>
-#include "..\Header Files\Beams_Class.hpp"
 #include "../../../Data/Beams/Materials.hpp"
 
 using namespace std;

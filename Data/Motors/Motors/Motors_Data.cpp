@@ -1,10 +1,8 @@
-#include <iostream>
-#include <cmath>
-#include "Motors_Data.hpp"
+#include "..\..\..\Classes\Motors\Header Files\Motors_Class.hpp"
 
 using namespace std;
 
-void Motor_Initial_Set()
+void motor::Motor_Initial_Set()
 {
     // Define the motor initial set sepecifications
     motor_name = { "EC frameless DT 50 S", "EC frameless DT 85 M", "ECX FLAT 22 l", "ECX FLAT 32 l", "ECX speed 10 l" }; // motors names
@@ -14,13 +12,13 @@ void Motor_Initial_Set()
     motor_specs[3] = { 54.0f, 90.0f, 22.0f, 32.0f, 10.0f }; // motor diameter (mm)
 }
 
-void motor_set()
+void motor::motor_set()
 {
     int choice = EXIT;
     do {
         for (int i = 0; i < motor_name.size(); i++) //print motors data
         {
-            cout << i + 1 << " : ";
+            cout << "\n" << i + 1 << " : ";
             cout << " motor name: " << motor_name[i]
             << " | motor speed: " << motor_specs[0][i]
             << " rad/s | motor torque: " << motor_specs[1][i]
@@ -50,14 +48,14 @@ void motor_set()
 
             // Add data to vectors
             motor_name.push_back(name);
-            motor_specs[0].push_back(speed * (2 * 3.14 / 60)); // convert rpm to rad/s
+            motor_specs[0].push_back(speed * (2 * M_PI / 60)); // convert rpm to rad/s
             motor_specs[1].push_back(torque);
             motor_specs[2].push_back(mass);
             motor_specs[3].push_back(diameter);
         }
 
         n_motor = motor_name.size();
-        cout << "\nThe number of motors is: " << n_motor << "\n";
+        cout << "\nThe number of motors is: " << n_motor << "\n\n";
 
     } while (choice == ADD_NEW_MOTOR);
 }

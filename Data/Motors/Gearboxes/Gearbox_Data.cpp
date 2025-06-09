@@ -1,10 +1,8 @@
-#include <iostream>
-#include <cmath>
-#include "Gearbox_Data.hpp"
+#include "..\..\..\Classes\Motors\Header Files\Motors_Class.hpp"
 
 using namespace std;
 
-void Gearbox_Initial_Set()
+void motor::Gearbox_Initial_Set()
 {
     // Define the Gearboxes initial set sepecifications
     gear_name = { "GB58", "GB9" }; // Gearbox Name
@@ -15,25 +13,22 @@ void Gearbox_Initial_Set()
     gear_specs[4] = { 53.0f, 73.0f }; // Gearbox Width (mm)
 }
 
-void Gearbox_add()
+void motor::Gearbox_add()
 {
     int choice = EXIT;
     do {
        
         for (int i = 0; i < gear_name.size(); i++)// print gears data
         {
-            
-                cout << i + 1 << ": ";
-                cout << "gear name: " << gear_name[i]
-                << " | gear ratio: " << gear_specs[0][i]
-                << " | gear efficiency: " << gear_specs[1][i]
-                << " | gear Mass: " << gear_specs[2][i]
-                << " Kg | gear diameter: " << gear_specs[3][i]
-                << " mm | gear width: " << gear_specs[4][i] << " mm\n";
-            
+            cout << i + 1 << ": ";
+            cout << "gear name: " << gear_name[i]
+            << " | gear ratio: " << gear_specs[0][i]
+            << " | gear efficiency: " << gear_specs[1][i]
+            << " | gear Mass: " << gear_specs[2][i]
+            << " Kg | gear diameter: " << gear_specs[3][i]
+            << " mm | gear width: " << gear_specs[4][i] << " mm\n";
         }
 
-        
         cout << "\nDo you want to insert another gearbox? (1: Yes | 0: No): ";
         cin >> choice;
         cout << "\n";
@@ -51,7 +46,7 @@ void Gearbox_add()
             cin >> efficiency;
             cout << "Please Enter the gear box mass (Kg): ";
             cin >> mass;
-            cout << "Please Enter the gear box diameter (mm): ";
+            cout << "Please Enter the gear box bore diameter (mm): ";
             cin >> diameter;
             cout << "Please Enter the gear box width (mm): ";
             cin >> width;
@@ -66,7 +61,7 @@ void Gearbox_add()
         }
 
         n_gear = gear_name.size();
-        cout << "The number of gearboxes is: " << n_gear << endl;
+        cout << "\nThe number of gearboxes is: " << n_gear << "\n";
 
     } while (choice == ADD_NEW_GEARBOX);
 }

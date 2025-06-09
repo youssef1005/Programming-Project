@@ -1,8 +1,3 @@
-#include <iostream>
-#include <cmath>
-#include <string>
-#include <vector>
-#include <array>
 #include "../Header Files/Motors_Class.hpp"
 
 using namespace std;
@@ -27,8 +22,9 @@ void motor::calc_speed_required()
 void motor::calc_torque_required()
 {
     double T;
-    T = m_l * g * (l / 2) + (m_p * g * l) + (m_l * pow((l / 2), 2) * alpha_max + m_l * pow(l, 2) * alpha_max);
+    T = m_l * g * ((l * pow(10, -3)) / 2) + (m_p * g * (l * pow(10, -3))) + (m_l * pow(((l * pow(10, -3)) / 2), 2) * alpha_max + m_l * pow((l * pow(10, -3)), 2) * alpha_max);
     T_required = T;
+    cout << "\n" << T << "\n";
 }
 
 void motor::sortvector()
@@ -38,7 +34,7 @@ void motor::sortvector()
     {
         for (int j = 0; j < n - i - 1; ++j) 
         {
-            if (Combination_specs[2][j] > Combination_specs[2][j + 1]) 
+            if (Combination_specs[2][j] > Combination_specs[2][j + 1])
             {
                 float new_cost = Combination_specs[2][j];
                 Combination_specs[2][j] = Combination_specs[2][j + 1];
@@ -55,7 +51,6 @@ void motor::sortvector()
                 float new_output_speed = Combination_specs[1][j];
                 Combination_specs[1][j] = Combination_specs[1][j + 1];
                 Combination_specs[1][j + 1] = new_output_speed;
-                    
             }
         }
     }
