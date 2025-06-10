@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 motor::motor(float len, float mass_p, float al_max, double mass_l)
 {
     l = len;

@@ -46,10 +46,9 @@ void beam::Mat_Sel()
         {
             // to add new materials as the user wants
             material_add();
+            cout << "\nChoose the beem's material: ";
+            cin >> chooser;
         }
-
-        cout << "\nChoose the beem's material: ";
-        cin >> chooser;
 
         sigma_y = sp_mat[chooser - 1][0]; // -1 to make it in index
         ro = sp_mat[chooser - 1][1]; // -1 to make it in index

@@ -90,6 +90,7 @@ double beam::beam_stress_optimizer()
                 b = b + 0.01 * b; // increase the width by 1 & to get the lower stress. (incase of rectangular cross-section).
                 op_stress = beam::beam_stress();
             }
+
             if (choice == CIRCULAR_CHOICE)
             {
                 cout << "So the dimensions need to be increased to: " << h << " mm\n";
@@ -98,11 +99,9 @@ double beam::beam_stress_optimizer()
             {
                 cout << "So the dimensions need to be increased to: \nThe beam's width is: " << b << " mm\n" << "The beam's height is: " << h << " mm\n";
             }
-            
-            
         }
 
-        if (op_stress <= (sigma_y / n) * (0.8)) // asks the user if he wants to optimize the beam's dimensions or not.
+        if (op_stress <= (sigma_y / n) * (0.9)) // asks the user if he wants to optimize the beam's dimensions or not.
         {
             char opt;
             cout << "Do you want to optimize the beam's dimensions? if not press (n/N): ";
@@ -122,15 +121,15 @@ double beam::beam_stress_optimizer()
             }
         }
 
-        while (op_stress <= (sigma_y / n) * (0.8)) // 
+        while (op_stress <= (sigma_y / n) * (0.9)) // 
         {
             h = h - 0.01 * h; // decrase the height by 1 & to get the lower stress.
             b = b - 0.01 * b;// decrase the width by 1 & to get the lower stress. (incase of rectangular cross-section).
             op_stress = beam::beam_stress();
 
-            if (h < 10) // if hight reaches a value less than 10 it will set it as 10 and end the function giving back the beam's data.
+            if (h < 2) // if hight reaches a value less than 2 it will set it as 2 and end the function giving back the beam's data.
             {
-                h = 10; // set the minimum height to 10 mm.
+                h = 2; // set the minimum height to 2 mm.
                 op_stress = beam::beam_stress();
                 if (choice == CIRCULAR_CHOICE)
                 {
@@ -143,8 +142,6 @@ double beam::beam_stress_optimizer()
                 return op_stress;
             }
         }
-
-        
 
         if (op_stress <= (sigma_y / n))
         {

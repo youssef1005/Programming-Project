@@ -1,4 +1,5 @@
 #include "..\Header Files\Beams_Class.hpp"
+
 using namespace std;
 
 int beam::get_choice()
@@ -32,7 +33,6 @@ void beam::set_choice()
     choice = c;
 }
 
-
 // sets the beam's length value and checks if the value is positive (asks the user).
 void beam::set_l()
 {
@@ -65,11 +65,11 @@ void beam::set_b()
 void beam::set_h()
 {
     float height;
-    if (choice == 0)
+    if (choice == CIRCULAR_CHOICE)
     {
         cout << "Please Enter the Diameter (in mm): ";
     }
-    else
+    else if (choice == RECTANGULAR_CHOICE)
     {
         cout << "Please Enter the height (in mm): ";
     }
