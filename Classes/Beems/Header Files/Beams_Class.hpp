@@ -5,7 +5,6 @@
 #include "..\Header Files\Beams_Class.hpp"
 #include "../../../Data/Beams/Materials.hpp"
 
-
 #define CIRCULAR_CHOICE 0 // General for circular choice.
 #define RECTANGULAR_CHOICE 1 // General for rectangular choice.
 

@@ -7,7 +7,6 @@
 #include <array>
 #include "../../Beems/Header Files/Beams_Class.hpp"
 
-
 #define NOT_AVAILABLE 0
 
 // Motor

@@ -56,7 +56,7 @@ void motor::sortvector()
 }
 
 // compare the torque we want with the torque of the motors in order, and as soon as we find one, we print its data: cost, torque, and speed.
-void motor::selection() 
+void motor::selection()
 {
     int n = Combination_specs[2].size();
     int num = 0; // to check if there is a suitable combination or not
