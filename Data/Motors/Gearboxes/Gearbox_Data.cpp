@@ -15,6 +15,7 @@ void motor::Gearbox_Initial_Set()
 
 void motor::Gearbox_add()
 {
+    Gearbox_Initial_Set();
     int choice = EXIT;
     do {
        

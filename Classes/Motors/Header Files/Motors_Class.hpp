@@ -71,7 +71,7 @@ public:
 
     // Motors Functions
     void Motor_Initial_Set();
-    void motor_set();
+    void motor_add();
 
     // Gearbox Functions
     void Gearbox_Initial_Set();

@@ -13,8 +13,13 @@ motor::motor(float len, float mass_p, float al_max, double mass_l)
 void motor::calc_speed_required()
 {
     float w;
-    cout << " Enter speed required speed (RPM): ";
+    cout << " Enter the required speed (RPM): ";
     cin >> w;
+    while (w <= 0)
+    {
+        cout << "Invalid Input!\n" << "Please re-enter the required speed (RPM) (should be positive): ";
+        cin >> w;
+    }
     speed_required = w * (2 * M_PI / 60);
 }
 
@@ -23,11 +28,15 @@ void motor::calc_torque_required()
     double T;
     T = m_l * g * ((l * pow(10, -3)) / 2) + (m_p * g * (l * pow(10, -3))) + (m_l * pow(((l * pow(10, -3)) / 2), 2) * alpha_max + m_l * pow((l * pow(10, -3)), 2) * alpha_max);
     T_required = T;
-    cout << "\n" << T << "\n";
 }
 
 void motor::sortvector()
 {
+    Combination_Name();
+    calc_output_torque();
+    calc_output_speed();
+    calc_cost();
+
     int n = Combination_specs[2].size();
     for (int i = 0; i < n - 1; ++i) 
     {

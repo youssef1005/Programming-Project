@@ -104,6 +104,7 @@ double beam::beam_stress_optimizer()
         if (op_stress <= (sigma_y / n) * (0.9)) // asks the user if he wants to optimize the beam's dimensions or not.
         {
             char opt;
+            cout << "The stress is pretty low so\n";
             cout << "Do you want to optimize the beam's dimensions? if not press (n/N): ";
             cin >> opt;
 

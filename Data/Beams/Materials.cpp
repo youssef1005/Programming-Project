@@ -38,6 +38,7 @@ void material_add()
         {
             // request the material's name
             string n_mat_name = "";
+            cout << "\n ---------------- Enter Your Data ---------------\n";
             cout << "\nEnter the material's name (max 25 char): ";
             cin >> n_mat_name;
             while (n_mat_name.length() == 0 || n_mat_name.length() > 25)
@@ -66,17 +67,24 @@ void material_add()
                 cin >> n_mat_ro;
             }
 
+
             cout << "\nAre you sure of the inserted data ( Material's Name: " << n_mat_name << " | Yield Strength: " << n_mat_ys << " | Density: " << n_mat_ro << " ) if yes press 0, to insert again press anyting else: ";
             cin >> Data_Ensure;
-            cout << "\n";
 
             // if the user sure then it will place the data
             if (Data_Ensure == SURE)
             {
                 last_added_mat += 1;
                 name_mat.at(last_added_mat) = n_mat_name;
-                sp_mat.at(last_added_mat) = {n_mat_ys, n_mat_ro};   
+                sp_mat.at(last_added_mat) = {n_mat_ys, n_mat_ro};
+                cout << "\n------------------- Thanks :) ------------------\n\n\n";
             }
+            else if (Data_Ensure != SURE)
+            {
+                cout << "\n-------------- Try again hope everything is alright :) -------------\n\n\n";
+            }
+            
+            
             
         } while (Data_Ensure != SURE);
 

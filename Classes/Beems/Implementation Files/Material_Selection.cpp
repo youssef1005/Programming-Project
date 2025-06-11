@@ -10,8 +10,8 @@ void beam::Mat_Sel()
     Material_Initial_Set();
     do
     {
-        cout << " # | Material Name             | Yield Strength | Density ";
-        cout << "\n----------------------------------------------------------\n";
+        cout << " # | Material Name             | Yield Strength [MPa] | Density [Kg/m^3] ";
+        cout << "\n------------------------------------------------------------------------\n";
         for (int i = 0; i < name_mat.size(); i++)
         {
             if (sp_mat[i][0] != 0)
@@ -29,10 +29,10 @@ void beam::Mat_Sel()
                 }
                 
                 cout << " | " << sp_mat[i][0];
-                if (sp_mat[i][0] < 10) cout << "             ";
-                else if (sp_mat[i][0] < 100) cout << "            ";
-                else if (sp_mat[i][0] < 1000) cout << "           ";
-                else if (sp_mat[i][0] < 10000) cout << "          ";
+                for (int j = 0; j < (27 - to_string(sp_mat[i][0]).length()); j++)
+                {
+                    cout << " ";
+                }
 
                 cout << " | " << sp_mat[i][1] <<"\n";
                 last_added_mat = i;

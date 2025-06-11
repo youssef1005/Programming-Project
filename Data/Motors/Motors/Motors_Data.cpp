@@ -6,24 +6,47 @@ void motor::Motor_Initial_Set()
 {
     // Define the motor initial set sepecifications
     motor_name = { "EC frameless DT 50 S", "EC frameless DT 85 M", "ECX FLAT 22 l", "ECX FLAT 32 l", "ECX speed 10 l" }; // motors names
-    motor_specs[0] = { 5630 * (2.0 * M_PI / 60), 2850 * (2.0 * M_PI / 60), 8520 * (2.0 * M_PI / 60), 8070 * (2.0 * M_PI / 60), 51600 * (2.0 * M_PI / 60) }; // motor speed (Rad/s)
-    motor_specs[1] = { 1.89f, 1.71f, 0.028f, 0.0944f, 0.00338f }; // motor torque (Nm)
+    motor_specs[0] = { 5630 * (2.0f * M_PI / 60), 2850 * (2.0f * M_PI / 60), 8520 * (2.0f * M_PI / 60), 8070 * (2.0f * M_PI / 60), 51600 * (2.0f * M_PI / 60) }; // motor speed (Rad/s)
+    motor_specs[1] = { 1.89999f, 1.71f, 0.028f, 0.0944f, 0.00338f }; // motor torque (Nm)
     motor_specs[2] = { 0.225f, 0.741f, 0.032f, 0.071f, 0.020f }; // motor mass (Kg)
     motor_specs[3] = { 20.0f, 5.0f, 20.0f, 30.0f, 75.0f }; // motor diameter (mm)
 }
 
-void motor::motor_set()
+void motor::motor_add()
 {
+    Motor_Initial_Set();
     int choice = EXIT;
     do {
+        cout << " # | Motor Name                | Speed [rpm] | Torque [Nm] | ";
+        cout << "\n-------------------------------------------------------------------\n";
         for (int i = 0; i < motor_name.size(); i++) //print motors data
         {
-            cout << "\n" << i + 1 << " : ";
-            cout << " motor name: " << motor_name[i]
-            << " | motor speed: " << motor_specs[0][i]
-            << " rad/s | motor torque: " << motor_specs[1][i]
-            << " Nm | motor mass: " << motor_specs[2][i]
-            << " Kg | motor diameter: " << motor_specs[3][i] << " mm\n";
+            if(i + 1 < 10) cout << " " << i + 1 << " | ";
+            else cout << " " << i + 1 << "| ";
+
+            cout << motor_name[i];
+            for (int j = 0; j < (25 - motor_name[i].length()); j++)
+            {
+                cout << " ";
+            }
+
+            cout << " | " << motor_specs[0][i] / (2.0f * M_PI / 60);
+            for (int j = 0; j < (18 - to_string(motor_specs[0][i] / (2.0f * M_PI / 60)).length()); j++)
+            {
+                cout << " ";
+            }
+            
+            cout << " | " << motor_specs[1][i];
+            for (int j = 0; j < (25 - to_string(motor_specs[1][i]).length()); j++)
+            {
+
+                cout << " ";
+            }
+
+            cout << " | " << motor_specs[2][i];
+
+            cout << " | " << motor_specs[3][i];
+            cout << "\n";
         }
 
         cout << "\nDo you want to insert other motors data? (1: Yes | 0: No): ";
@@ -34,7 +57,7 @@ void motor::motor_set()
         {
             string name;
             float speed, torque, mass, diameter;
-
+            cout << "\n ---------------- Enter Your Data ---------------\n\n";
             cout << "Please Enter the motor name: ";
             cin >> name;
             cout << "Please Enter the motor speed (rpm): ";

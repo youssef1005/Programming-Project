@@ -76,7 +76,14 @@ void beam::set_h()
     cin >> height;
     while (height <= 0)
         {
-            cout << "Invalid Input!\n" << "Please re-enter the ( height | Diameter ) (in mm) (should be positive): ";
+            if (choice == CIRCULAR_CHOICE)
+            {
+                cout << "Invalid Input!\n" << "Please re-enter the ( height | Diameter ) (in mm) (should be positive): ";
+            }
+            else if (choice == RECTANGULAR_CHOICE)
+            {
+                cout << "Invalid Input!\n" << "Please re-enter the ( height | Diameter ) (in mm) (should be positive): ";
+            }
             cin >> height;
         }
     h = height;

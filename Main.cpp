@@ -35,46 +35,46 @@ int main()
     do
     {
         beam a;
-
+        motor n(a.get_l(), a.get_m_p(), a.get_alpha(), a.beam_mass());
+        n.motor_add();
         // --------- set the beam's parameters form user -----------------
-
         cout << "\n\n ---------- first we need to define the beam's parameters ---------- \n\n";
+        cout << " ----------- Defining Material -----------\n\n";
         a.Mat_Sel();
+        cout << " ----------- A Nice Choise :) -----------\n\n";
         a.set_n();
+        cout << "\n\n ----------- Defining Shape and Dimensions -----------\n\n";
         a.set_choice();
         if(a.get_choice() == 0) a.set_h();
         else {a.set_b(); a.set_h();}
         a.set_l();
+        cout << "\n ------- About to finish the defining process :) -------\n\n";
+        cout << "\n ----------- Defining external parameters -----------\n\n";
         a.set_alpha();
         a.set_m_p();
+        cout << "\n ----------- Thanks for the effort :) -----------\n\n";
         // ---------- end -----------
 
         // -------------- Stress Optimizer final results --------------
-        cout << "\n\n ---------------- The Final Results ------------------- \n";
+        cout << "\n ------------ The Final Results ------------- \n\n";
         cout << "The beam's Stress: " << a.beam_stress_optimizer() << " MPa";
-        cout << "\n\n--------------- END ----------------\n\n";
+        cout << "\n\n --------- now you finish stress optimization ---------\n";
         // ---------- end -----------
         
         // ---------- motors test -----------
-
-        cout << "\n\n ---------- For The Motor Selection ---------- \n\n";
-        motor b(a.get_l(), a.get_m_p(), a.get_alpha(), a.beam_mass());
+        cout << "\n\n ---------- For The Motor-Gearbox Selector ---------- \n\n";
+        motor b(a.get_l(), a.get_m_p(), a.get_alpha(), a.beam_mass()); // passing the beam's diameter to the motor
         b.calc_speed_required();
         b.calc_torque_required();
-        b.Motor_Initial_Set();
-        b.motor_set();
-        b.Gearbox_Initial_Set();
+        cout << " ----------- Preparing the motors' set -----------";
+        b.motor_add();
         b.Gearbox_add();
-        b.Combination_Name();
-        b.calc_output_torque();
-        b.calc_output_speed();
-        b.calc_cost();
         b.sortvector();
         b.selection();
         cout << "\n\n--------------- END ----------------\n\n";
-
         // ---------- end -----------
 
+        cout << "\n\n ---------------- Thanks for using our app ------------------ ";
         cout << "\n\nTo Re-run the program enter 1, to exit enter any number else: ";
         cin >> z;
         } while (z == 1);
