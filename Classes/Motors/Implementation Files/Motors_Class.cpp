@@ -26,7 +26,7 @@ void motor::calc_speed_required()
 void motor::calc_torque_required()
 {
     double T;
-    T = m_l * g * ((l * pow(10, -3)) / 2) + (m_p * g * (l * pow(10, -3))) + (m_l * pow(((l * pow(10, -3)) / 2), 2) * alpha_max + m_l * pow((l * pow(10, -3)), 2) * alpha_max);
+    T = m_l * g * ((l * pow(10, -3)) / 2) + (m_p * g * (l * pow(10, -3))) + (m_l * pow(((l * pow(10, -3)) / 2), 2) * alpha_max + m_p * pow((l * pow(10, -3)), 2) * alpha_max);
     T_required = T;
 }
 

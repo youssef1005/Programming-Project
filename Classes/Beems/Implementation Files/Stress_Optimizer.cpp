@@ -47,12 +47,6 @@ double beam::bending_moment()
     return M;
 }
 
-// calculates the Inertial force due to angular acceleration (N).
-double beam::Inertial_force()
-{     
-    double acc = alpha * l;
-    return beam::beam_mass() * acc;
-}
 // ---------------- end ----------------
 
 // ---------------- Stress Calculations ---------------------
@@ -62,10 +56,8 @@ double beam::beam_stress()
 {
     beam::beam_volume();
     beam::beam_moment_of_inertia();
-    beam::Inertial_force();
-    double stress = (beam::bending_moment() * h) / (2 * I); // in N/mm^2 = Mpa
-    
-    return stress;
+
+    return (beam::bending_moment() * h) / (2 * I);// in N/mm^2 = Mpa
 }
 
 // optimizer that changes the dimensions of the beam and recaculate the stress.
@@ -83,7 +75,7 @@ double beam::beam_stress_optimizer()
         {
 
             cout << "\nThe beam's stress is: " << op_stress << " MPa\nwhich is higher than the allowable stress.\n";
-            
+
             while (op_stress >= (sigma_y / n)) // incase the data from user is not suitable for the material then it will increase the dimensions.
             {
                 h = h + 0.01 * h; // increase the height by 1 & to get the lower stress.
@@ -122,7 +114,7 @@ double beam::beam_stress_optimizer()
             }
         }
 
-        while (op_stress <= (sigma_y / n) * (0.9)) // 
+        while (op_stress <= (sigma_y / n) * (0.9)) //
         {
             h = h - 0.01 * h; // decrase the height by 1 & to get the lower stress.
             b = b - 0.01 * b;// decrase the width by 1 & to get the lower stress. (incase of rectangular cross-section).

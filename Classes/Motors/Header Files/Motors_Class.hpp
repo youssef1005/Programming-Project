@@ -33,8 +33,6 @@ private:
     float speed_required, torque_motor, efficency = (0, 0, 0);
     double T_required = 0;
 
-    //------------- Error ------------------
-    float w_output; // error for w_output you have to check its value
     const float g = 9.81;
 
     // Motors

@@ -97,9 +97,6 @@ public:
     // calculates the bending moment (N.m).
     double bending_moment();
 
-    // calculates the Inertial force due to angular acceleration (N).
-    double Inertial_force();
-
     // calculates the beam's stress (Mpa).
     double beam_stress();
 

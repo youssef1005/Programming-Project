@@ -26,10 +26,10 @@ void beam::set_choice()
     cout << "Please Enter your beam's cross-section type (0: Circular | 1: Rectangular): ";
     cin >> c;
     while (c != CIRCULAR_CHOICE && c != RECTANGULAR_CHOICE)
-        {
-            cout << "Invalid Input!\n" << "Please re-enter the cross-section type (0: Circular | 1: Rectangular): ";
-            cin >> c;
-        }
+    {
+        cout << "Invalid Input!\n" << "Please re-enter the cross-section type (0: Circular | 1: Rectangular): ";
+        cin >> c;
+    }
     choice = c;
 }
 
@@ -40,10 +40,10 @@ void beam::set_l()
     cout << "Please Enter your beam's length (in mm): ";
     cin >> length;
     while (length <= 0)
-        {
-            cout << "Invalid Input!\n" << "Please re-enter the length (in mm) (should be positive): ";
-            cin >> length;
-        }
+    {
+        cout << "Invalid Input!\n" << "Please re-enter the length (in mm) (should be positive): ";
+        cin >> length;
+    }
     l = length;
 }
 
@@ -54,10 +54,10 @@ void beam::set_b()
     cout << "Please Enter the width (in mm): ";
     cin >> Width;
     while (Width <= 0)
-        {
-            cout << "Invalid Input!\n" << "Please re-enter the width (in mm) (should be positive): ";
-            cin >> Width;
-        }
+    {
+        cout << "Invalid Input!\n" << "Please re-enter the width (in mm) (should be positive): ";
+        cin >> Width;
+    }
     b = Width;
 }
 
@@ -75,17 +75,17 @@ void beam::set_h()
     }
     cin >> height;
     while (height <= 0)
+    {
+        if (choice == CIRCULAR_CHOICE)
         {
-            if (choice == CIRCULAR_CHOICE)
-            {
-                cout << "Invalid Input!\n" << "Please re-enter the ( height | Diameter ) (in mm) (should be positive): ";
-            }
-            else if (choice == RECTANGULAR_CHOICE)
-            {
-                cout << "Invalid Input!\n" << "Please re-enter the ( height | Diameter ) (in mm) (should be positive): ";
-            }
-            cin >> height;
+            cout << "Invalid Input!\n" << "Please re-enter the Diameter (in mm) (should be positive): ";
         }
+        else if (choice == RECTANGULAR_CHOICE)
+        {
+            cout << "Invalid Input!\n" << "Please re-enter the height (in mm) (should be positive): ";
+        }
+        cin >> height;
+    }
     h = height;
 }
 

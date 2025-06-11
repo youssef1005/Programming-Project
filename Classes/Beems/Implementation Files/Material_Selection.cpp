@@ -10,6 +10,7 @@ void beam::Mat_Sel()
     Material_Initial_Set();
     do
     {
+        // ---------------------- Showing the list at first ---------------------------------
         cout << " # | Material Name             | Yield Strength [MPa] | Density [Kg/m^3] ";
         cout << "\n------------------------------------------------------------------------\n";
         for (int i = 0; i < name_mat.size(); i++)
@@ -38,6 +39,7 @@ void beam::Mat_Sel()
                 last_added_mat = i;
             }
         }
+        // -------------- End of the list showing ------------------
 
         cout << "\nChoose the beem's material (if you want to add a material press 0): ";
         cin >> chooser;
